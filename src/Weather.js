@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { TailSpin } from "react-loader-spinner";
+import { InfinitySpin } from "react-loader-spinner";
 export default function Weather(props) {
   const [weather, setWeather] = useState("");
   function displayTemp(response) {
@@ -18,16 +18,15 @@ export default function Weather(props) {
       <h2>
         The weather in {props.city} is {Math.round(weather.temperature)} °C
       </h2>
-      <TailSpin
-        visible={true}
-        height="80"
-        width="80"
-        color="#4fa94d"
-        ariaLabel="tail-spin-loading"
-        radius="1"
-        wrapperStyle={{}}
-        wrapperClass=""
-      />
+
+      <div className="spinner">
+        <InfinitySpin
+          visible={true}
+          width="300"
+          color="#4fa94d"
+          ariaLabel="infinity-spin-loading"
+        />
+      </div>
     </div>
   );
 }
